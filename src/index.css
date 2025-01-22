@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-dark dark:text-light;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-dark-content/70 dark:text-light-content/70 mt-4 max-w-2xl mx-auto;
+  }
+
+  .card {
+    @apply bg-white dark:bg-dark-darker rounded-xl shadow-lg p-6 transition-all duration-300
+           hover:shadow-xl dark:shadow-dark/10 dark:hover:shadow-dark/20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary hover:bg-primary/90 text-white rounded-lg
+           transition-all duration-300 transform hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
+           dark:focus:ring-offset-dark;
+  }
+
+  .btn-secondary {
+    @apply btn bg-dark/5 dark:bg-light/5 hover:bg-dark/10 dark:hover:bg-light/10
+           text-dark dark:text-light rounded-lg transition-all duration-300
+           transform hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .nav-link {
+    @apply text-dark-content hover:text-primary transition-colors duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-dark/10 dark:border-light/10
+           bg-white dark:bg-dark-darker text-dark dark:text-light
+           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
+           dark:focus:ring-offset-dark placeholder-dark-content/50
+           dark:placeholder-light-content/50;
+  }
+
+  .skill-bar {
+    @apply w-full h-2 bg-dark/10 dark:bg-light/10 rounded-full overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full bg-primary rounded-full transition-all duration-1000;
+  }
+}
+
+/* Animation Classes */
+.reveal {
+  @apply opacity-0 transition-all duration-1000;
+}
+
+.reveal-visible {
+  @apply opacity-100 transform translate-y-0;
+}
+
+.reveal-hidden {
+  @apply transform translate-y-10;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark/5 dark:bg-light/5;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-dark/20 dark:bg-light/20 rounded-full hover:bg-dark/30 dark:hover:bg-light/30;
+}
