@@ -66,7 +66,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-xl md:text-2xl text-primary font-medium mb-4"
           >
-            Welcome to my portfolio
+            Welcome
           </motion.h2>
 
           <motion.h1

@@ -29,27 +29,27 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce platform with features like user authentication, product management, and payment integration.',
-      image: '/project1.jpg',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      liveLink: '#',
+      title: 'AMA BHOOMI: Parks & Public Spaces Management',
+      description: '"AMA BHOOMI" is a platform for managing and reserving parks, playgrounds, and event spaces. It simplifies facility search, booking, and activity tracking, benefiting both citizens and administrators by ensuring accessible, well-maintained public spaces while optimizing resource management for fair usage and efficient maintenance.',
+      image: '/ama-bhoomi.png',
+      technologies: ['React.js', 'Node.js', 'MySQL', 'Redux', 'Razorpay', 'JWT'],
+      liveLink: '#',  //http://172.188.28.14:5000/ama-bhoomi
       githubLink: '#',
     },
     {
-      title: 'Task Management App',
-      description: 'Real-time task management application with team collaboration features and progress tracking.',
-      image: '/project2.jpg',
-      technologies: ['Next.js', 'Socket.io', 'PostgreSQL', 'TailwindCSS'],
-      liveLink: '#',
+      title: 'BSABT Bus Terminal Management System',
+      description: 'The Bus Terminal Management System (BTMS) at BSABT, Baramunda enhances terminal efficiency using IoT-based monitoring for bus bays and parking spaces. It provides real-time availability updates, reduces congestion, improves security, and enables data-driven management. BTMS optimizes bus tracking, parking usage, and passenger convenience, ensuring smoother terminal operations.',
+      image: '/bsabt-btms.jpg',
+      technologies: ['React.js', 'Node.js', 'PostgreSQL', 'TailwindCSS', 'JWT'],
+      liveLink: '#',  //https://isbt.soulunileaders.in/
       githubLink: '#',
     },
     {
-      title: 'AI Content Generator',
-      description: 'An AI-powered application that generates various types of content using OpenAI\'s GPT-3 API.',
-      image: '/project3.jpg',
-      technologies: ['React', 'OpenAI API', 'Node.js', 'Express'],
-      liveLink: '#',
+      title: 'Food Donation App',
+      description: 'Food donation web application connects donors, NGOs, and recipients to reduce food waste and fight hunger. It enables real-time food listings, pickup coordination, and tracking, ensuring surplus food reaches those in need efficiently. The platform promotes community engagement, sustainability, and social impact through seamless donation management.',
+      image: '/food-donation.png', 
+      technologies: ['React.js', 'Node.js', 'PostgreSQL'],
+      liveLink: 'https://share.soulltd.in/',  //https://share.soulltd.in/
       githubLink: '#',
     },
   ];

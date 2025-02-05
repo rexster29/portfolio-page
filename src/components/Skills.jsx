@@ -8,6 +8,9 @@ import {
   CircleStackIcon,
   WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline';
+import { FaReact, FaNodeJs, FaGitAlt, FaHtml5 } from "react-icons/fa";
+import { SiRedux, SiJavascript, SiExpress, SiPostgresql, SiMysql, SiMicrosoftsqlserver, SiTailwindcss, SiJquery, SiVite, SiJsonwebtokens } from "react-icons/si";
+import { AiFillApi } from "react-icons/ai";
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -20,36 +23,36 @@ const Skills = () => {
       category: 'Frontend',
       icon: <WindowIcon className="w-6 h-6" />,
       skills: [
-        { name: 'React.js' },
-        { name: 'Redux' },
-        { name: 'HTML/CSS' },
-        { name: 'JavaScript' },
-        { name: 'Tailwind CSS' },
-        { name: 'jQuery' },
+        { name: 'React.js', icon: <FaReact /> },
+        { name: 'Redux', icon: <SiRedux /> },
+        { name: 'HTML/CSS', icon: <FaHtml5 /> },
+        { name: 'JavaScript', icon: <SiJavascript /> },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
+        { name: 'jQuery', icon: <SiJquery /> },
       ],
     },
     {
       category: 'Backend',
       icon: <ServerIcon className="w-6 h-6" />,
       skills: [
-        { name: 'Node.js' },
-        { name: 'Express.js' },
+        { name: 'Node.js', icon: <FaNodeJs /> },
+        { name: 'Express.js', icon: <SiExpress /> },
       ],
     },
     {
       category: 'Database',
       icon: <CircleStackIcon className="w-6 h-6" />,
       skills: [
-        { name: 'PostgreSQL' },
-        { name: 'MySQL' },
-        { name: 'SQL Server' },
+        { name: 'PostgreSQL', icon: <SiPostgresql /> },
+        { name: 'MySQL', icon: <SiMysql /> },
+        { name: 'SQL Server', icon: <SiMicrosoftsqlserver/> },
       ],
     },
     {
       category: 'Tools & Others',
       icon: <WrenchScrewdriverIcon className="w-6 h-6" />,
       skills: [
-        { name: 'Git' },
+        { name: 'Git', icon: <FaGitAlt /> },
         { name: 'JWT' },
         { name: 'Vite' },
         { name: 'REST APIs' },
@@ -125,7 +128,8 @@ const Skills = () => {
                         }}
                         className="flex items-center gap-3 p-3 rounded-lg hover:bg-dark/5 dark:hover:bg-light/5 transition-colors group"
                       >
-                        <span className="text-dark-content dark:text-light-content">
+                        <span className="text-dark-content dark:text-light-content flex items-center gap-2">
+                          {skill.icon}
                           {skill.name}
                         </span>
                         <motion.div
@@ -151,5 +155,6 @@ const Skills = () => {
     </section>
   );
 };
+
 
 export default Skills;
