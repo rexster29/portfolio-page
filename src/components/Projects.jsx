@@ -51,7 +51,7 @@ const Projects = () => {
       technologies: ['React.js', 'Node.js', 'PostgreSQL'],
       liveLink: 'https://share.soulltd.in/',  //https://share.soulltd.in/
       githubLink: '#',
-    },
+    }, 
   ];
 
   return (

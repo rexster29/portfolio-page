@@ -9,7 +9,7 @@ import {
   WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline';
 import { FaReact, FaNodeJs, FaGitAlt, FaHtml5 } from "react-icons/fa";
-import { SiRedux, SiJavascript, SiExpress, SiPostgresql, SiMysql, SiMicrosoftsqlserver, SiTailwindcss, SiJquery, SiVite, SiJsonwebtokens } from "react-icons/si";
+import { SiRedux, SiJavascript, SiExpress, SiPostgresql, SiMysql, SiTailwindcss, SiJquery, SiVite, SiJsonwebtokens } from "react-icons/si";
 import { AiFillApi } from "react-icons/ai";
 
 const Skills = () => {
@@ -45,7 +45,7 @@ const Skills = () => {
       skills: [
         { name: 'PostgreSQL', icon: <SiPostgresql /> },
         { name: 'MySQL', icon: <SiMysql /> },
-        { name: 'SQL Server', icon: <SiMicrosoftsqlserver/> },
+        { name: 'SQL Server', icon: <SiMysql/> },
       ],
     },
     {
@@ -53,9 +53,9 @@ const Skills = () => {
       icon: <WrenchScrewdriverIcon className="w-6 h-6" />,
       skills: [
         { name: 'Git', icon: <FaGitAlt /> },
-        { name: 'JWT' },
-        { name: 'Vite' },
-        { name: 'REST APIs' },
+        { name: 'JWT', icon: <SiJsonwebtokens /> },
+        { name: 'Vite', icon:<SiVite /> },
+        { name: 'REST APIs', icon: <AiFillApi /> },
       ],
     },
   ];

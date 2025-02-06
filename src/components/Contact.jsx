@@ -122,7 +122,7 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants}>
+            { false && <motion.div variants={itemVariants}>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div whileTap={{ scale: 0.98 }}>
@@ -181,6 +181,7 @@ const Contact = () => {
                 </motion.button>
               </form>
             </motion.div>
+            }
           </div>
         </motion.div>
       </div>
