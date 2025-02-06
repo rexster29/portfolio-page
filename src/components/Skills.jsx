@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
+import {
   CodeBracketIcon,
   CommandLineIcon,
   ServerIcon,
@@ -23,19 +23,51 @@ const Skills = () => {
       category: 'Frontend',
       icon: <WindowIcon className="w-6 h-6" />,
       skills: [
-        { name: 'React.js', icon: <FaReact /> },
-        { name: 'Redux', icon: <SiRedux /> },
-        { name: 'HTML/CSS', icon: <FaHtml5 /> },
-        { name: 'JavaScript', icon: <SiJavascript /> },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
-        { name: 'jQuery', icon: <SiJquery /> },
+        {
+          name: 'React.js',
+          icon: <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <FaReact color="#58c4dc" />
+          </motion.div>
+        },
+        {
+          name: 'Redux',
+          icon: <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <SiRedux color="#764abc" />
+          </motion.div>
+        },
+        {
+          name: 'HTML/CSS',
+          icon: <motion.div
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <FaHtml5 color='#dd4b25' />
+          </motion.div>
+        },
+        {
+          name: 'JavaScript',
+          icon: <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <SiJavascript color='#ffd93d' />
+          </motion.div>
+        },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss color='#39b5f2' /> },
+        { name: 'jQuery', icon: <SiJquery color='#78cff5' /> },
       ],
     },
     {
       category: 'Backend',
       icon: <ServerIcon className="w-6 h-6" />,
       skills: [
-        { name: 'Node.js', icon: <FaNodeJs /> },
+        { name: 'Node.js', icon: <FaNodeJs color='#56a545' /> },
         { name: 'Express.js', icon: <SiExpress /> },
       ],
     },
@@ -43,19 +75,28 @@ const Skills = () => {
       category: 'Database',
       icon: <CircleStackIcon className="w-6 h-6" />,
       skills: [
-        { name: 'PostgreSQL', icon: <SiPostgresql /> },
-        { name: 'MySQL', icon: <SiMysql /> },
-        { name: 'SQL Server', icon: <SiMysql/> },
+        { name: 'PostgreSQL', icon: <SiPostgresql color='#31638c' /> },
+        { name: 'MySQL', icon: <SiMysql color='#00749d' /> },
+        { name: 'SQL Server', icon: <SiMysql color='#00749d' /> },
       ],
     },
     {
       category: 'Tools & Others',
       icon: <WrenchScrewdriverIcon className="w-6 h-6" />,
       skills: [
-        { name: 'Git', icon: <FaGitAlt /> },
-        { name: 'JWT', icon: <SiJsonwebtokens /> },
-        { name: 'Vite', icon:<SiVite /> },
-        { name: 'REST APIs', icon: <AiFillApi /> },
+        { name: 'Git', icon: <FaGitAlt color='#e94d32' /> },
+        {
+          name: 'JWT',
+          icon:
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              <SiJsonwebtokens color='purple' />
+            </motion.div>
+        },
+        { name: 'Vite', icon: <SiVite color='#748cf7' /> },
+        { name: 'REST APIs', icon: <AiFillApi color='#a1c8f7' /> },
       ],
     },
   ];
@@ -115,7 +156,7 @@ const Skills = () => {
                     </div>
                     <h3 className="text-xl font-bold">{category.category}</h3>
                   </div>
-                  
+
                   <div className="space-y-4">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
