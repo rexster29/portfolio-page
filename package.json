@@ -5,8 +5,8 @@
   "type": "module",
   "homepage": "https://rexster29.github.io/portfolio-page/",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npx tailwindcss && vite",
+    "build": "npx tailwindcss && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d build"
