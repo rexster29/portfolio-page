@@ -102,41 +102,95 @@ const Education = () => {
 
           <div className="mt-16 space-y-8">
             {educationData.map((edu, index) => (
-              <motion.div
+              <Tilt
                 key={index}
-                variants={itemVariants}
-                className="card relative overflow-hidden"
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                scale={1.02}
+                transitionSpeed={2000}
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                glareColor="#4F46E5"
+                glarePosition="all"
+                glareBorderRadius="1rem"
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary mt-1">
-                    <AcademicCapIcon className="w-6 h-6" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold">{edu.school}</h3>
-                    <div className="flex flex-wrap gap-2 text-dark-content/60 dark:text-light-content/60">
-                      <span>{edu.degree}</span>
-                      <span>•</span>
-                      <span>{edu.period}</span>
-                    </div>
-                    <ul className="list-disc list-inside space-y-1 text-dark-content/80 dark:text-light-content/80">
-                      {edu.achievements.map((achievement, i) => (
-                        <li key={i}>{achievement}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
                 <motion.div
-                  className="absolute -z-10 inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                  animate={{
-                    rotate: [0, 360],
+                  variants={itemVariants}
+                  className="card relative overflow-hidden"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    boxShadow: '0 20px 60px rgba(79, 70, 229, 0.15)',
+                    transform: 'translateZ(40px)',
                   }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
+                  whileHover={{
+                    y: -5,
                   }}
-                />
-              </motion.div>
+                >
+                  {/* 3D Background gradient */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10"
+                    animate={{
+                      rotate: [0, 360],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    style={{
+                      transform: 'translateZ(-10px)',
+                    }}
+                  />
+                  
+                  <div className="flex items-start gap-4">
+                    <motion.div 
+                      className="p-2 bg-primary/10 rounded-lg text-primary mt-1"
+                      style={{
+                        transform: 'translateZ(30px)',
+                        boxShadow: '0 10px 25px rgba(79, 70, 229, 0.2)',
+                      }}
+                      whileHover={{
+                        rotateY: 360,
+                        scale: 1.2,
+                      }}
+                      transition={{
+                        duration: 0.6,
+                      }}
+                    >
+                      <AcademicCapIcon className="w-6 h-6" />
+                    </motion.div>
+                    <div 
+                      className="space-y-2"
+                      style={{
+                        transform: 'translateZ(20px)',
+                      }}
+                    >
+                      <h3 className="text-xl font-bold">{edu.school}</h3>
+                      <div className="flex flex-wrap gap-2 text-dark-content/60 dark:text-light-content/60">
+                        <span>{edu.degree}</span>
+                        <span>•</span>
+                        <span>{edu.period}</span>
+                      </div>
+                      <ul className="list-disc list-inside space-y-1 text-dark-content/80 dark:text-light-content/80">
+                        {edu.achievements.map((achievement, i) => (
+                          <motion.li 
+                            key={i}
+                            whileHover={{
+                              x: 10,
+                              color: '#4F46E5',
+                            }}
+                            style={{
+                              transform: 'translateZ(10px)',
+                            }}
+                          >
+                            {achievement}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              </Tilt>
             ))}
           </div>
         </motion.div>
