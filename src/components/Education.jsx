@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { AcademicCapIcon } from '@heroicons/react/24/outline';
-import { Tilt } from 'react-parallax-tilt';
+import Tilt from 'react-parallax-tilt';
 
 const Education = () => {
   const [ref, inView] = useInView({
