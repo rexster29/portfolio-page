@@ -77,7 +77,7 @@ const Hero = () => {
         }} />
       </div>
 
-      <div className="container">
+      <div className="container" style={{ transform: 'translateZ(100px)', transformStyle: 'preserve-3d' }}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -87,6 +87,10 @@ const Hero = () => {
           <motion.h2
             variants={itemVariants}
             className="text-xl md:text-2xl text-primary font-medium mb-4"
+            style={{
+              transform: 'translateZ(50px)',
+              textShadow: '0 10px 30px rgba(79, 70, 229, 0.3)',
+            }}
           >
             Welcome
           </motion.h2>
@@ -94,6 +98,10 @@ const Hero = () => {
           <motion.h1
             variants={itemVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            style={{
+              transform: 'translateZ(80px)',
+              textShadow: '0 10px 40px rgba(0, 0, 0, 0.2)',
+            }}
           >
             Hi, I'm{' '}
             <span className="gradient-text">
@@ -113,6 +121,9 @@ const Hero = () => {
           <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl text-dark-content/80 mb-8 max-w-2xl mx-auto"
+            style={{
+              transform: 'translateZ(60px)',
+            }}
           >
             I create beautiful and functional websites with modern technologies
             and best practices.
@@ -121,15 +132,52 @@ const Hero = () => {
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap justify-center gap-4"
+            style={{
+              transform: 'translateZ(70px)',
+            }}
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div 
+              whileHover={{ 
+                scale: 1.05,
+                rotateY: 5,
+                rotateX: -5,
+              }} 
+              whileTap={{ scale: 0.95 }}
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
+            >
               <Link to="contact" smooth={true} duration={500} offset={-100}>
-                <button className="btn-primary">Get in Touch</button>
+                <button 
+                  className="btn-primary"
+                  style={{
+                    boxShadow: '0 10px 30px rgba(79, 70, 229, 0.3)',
+                  }}
+                >
+                  Get in Touch
+                </button>
               </Link>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div 
+              whileHover={{ 
+                scale: 1.05,
+                rotateY: -5,
+                rotateX: -5,
+              }} 
+              whileTap={{ scale: 0.95 }}
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
+            >
               <Link to="projects" smooth={true} duration={500} offset={-100}>
-                <button className="btn-outline">View Projects</button>
+                <button 
+                  className="btn-outline"
+                  style={{
+                    boxShadow: '0 10px 30px rgba(79, 70, 229, 0.2)',
+                  }}
+                >
+                  View Projects
+                </button>
               </Link>
             </motion.div>
           </motion.div>
@@ -138,6 +186,7 @@ const Hero = () => {
             variants={itemVariants}
             animate={{
               y: [0, 10, 0],
+              rotateX: [0, 10, 0],
             }}
             transition={{
               duration: 2,
@@ -145,6 +194,10 @@ const Hero = () => {
               ease: "easeInOut",
             }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2"
+            style={{
+              transform: 'translateZ(40px)',
+              filter: 'drop-shadow(0 5px 15px rgba(79, 70, 229, 0.4))',
+            }}
           >
             <Link to="about" smooth={true} duration={500} offset={-100}>
               <ArrowDownIcon className="w-6 h-6 text-primary cursor-pointer" />
