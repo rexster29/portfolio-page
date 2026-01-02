@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
-import { Tilt } from 'react-parallax-tilt';
+import Tilt from 'react-parallax-tilt';
 
 const Projects = () => {
   const [ref, inView] = useInView({
