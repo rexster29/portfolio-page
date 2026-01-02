@@ -12,7 +12,7 @@ import {
 import { FaReact, FaNodeJs, FaGitAlt, FaHtml5 } from "react-icons/fa";
 import { SiRedux, SiJavascript, SiExpress, SiPostgresql, SiMysql, SiTailwindcss, SiJquery, SiVite, SiJsonwebtokens } from "react-icons/si";
 import { AiFillApi } from "react-icons/ai";
-import { Tilt } from 'react-parallax-tilt';
+import Tilt from 'react-parallax-tilt';
 
 const Skills = () => {
   const [ref, inView] = useInView({
