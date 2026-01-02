@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Tilt } from 'react-parallax-tilt';
 
 const About = () => {
   const [ref, inView] = useInView({
