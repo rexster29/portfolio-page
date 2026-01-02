@@ -37,6 +37,8 @@
   .card {
     @apply bg-white dark:bg-dark-darker rounded-xl shadow-lg p-6 transition-all duration-300
            hover:shadow-xl dark:shadow-dark/10 dark:hover:shadow-dark/20;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
 
   .btn {
