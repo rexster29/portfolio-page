@@ -34,30 +34,61 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-secondary/5 relative overflow-hidden">
-      {/* Decorative Elements */}
+    <section id="about" className="section-padding bg-secondary/5 relative overflow-hidden" style={{ perspective: '1500px' }}>
+      {/* Enhanced Decorative Elements with 3D */}
       <motion.div
         animate={{
           rotate: 360,
+          scale: [1, 1.2, 1],
         }}
         transition={{
           duration: 20,
           repeat: Infinity,
           ease: "linear",
         }}
-        className="absolute top-0 right-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10"
+        className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10"
+        style={{
+          transform: 'translateZ(50px)',
+        }}
       />
       <motion.div
         animate={{
           rotate: -360,
+          scale: [1.2, 1, 1.2],
         }}
         transition={{
           duration: 20,
           repeat: Infinity,
           ease: "linear",
         }}
-        className="absolute bottom-0 left-0 w-72 h-72 bg-secondary/10 rounded-full blur-3xl -z-10"
+        className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10"
+        style={{
+          transform: 'translateZ(50px)',
+        }}
       />
+      
+      {/* Floating 3D cubes */}
+      {[...Array(3)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-20 h-20 bg-primary/5 backdrop-blur-sm rounded-lg -z-10"
+          style={{
+            left: `${20 + i * 30}%`,
+            top: `${30 + i * 20}%`,
+            transform: 'translateZ(30px)',
+          }}
+          animate={{
+            rotateX: [0, 360],
+            rotateY: [0, 360],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 15 + i * 5,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      ))}
 
       <div className="container">
         <motion.div
