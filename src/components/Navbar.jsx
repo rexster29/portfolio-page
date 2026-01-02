@@ -116,14 +116,29 @@ const Navbar = () => {
               transition={{ delay: navItems.length * 0.1 }}
               onClick={handleDownloadResume}
               className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+              whileHover={{
+                scale: 1.05,
+                rotateX: 5,
+                boxShadow: '0 10px 30px rgba(79, 70, 229, 0.4)',
+              }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
             >
               Download Resume
             </motion.button>
             <motion.button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-dark/5 dark:bg-light/5 hover:bg-dark/10 dark:hover:bg-light/10 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ 
+                scale: 1.1,
+                rotate: 180,
+              }}
+              whileTap={{ scale: 0.9 }}
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
             >
               {theme === 'dark' ? (
                 <SunIcon className="w-5 h-5 text-yellow-500" />
