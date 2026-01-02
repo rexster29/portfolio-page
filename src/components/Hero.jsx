@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { Link } from 'react-scroll';
 import { ArrowDownIcon } from '@heroicons/react/24/outline';
+import FloatingShapes from './3d/FloatingShapes';
+import ParticleField from './3d/ParticleField';
 
 const Hero = () => {
   const containerVariants = {
@@ -26,9 +28,13 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Background Animation */}
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden" style={{ perspective: '1000px' }}>
+      {/* 3D Background with Particles and Floating Shapes */}
       <div className="absolute inset-0 -z-10">
+        <ParticleField count={60} />
+        <FloatingShapes />
+        
+        {/* Enhanced Gradient Orbs with 3D effect */}
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -40,6 +46,10 @@ const Hero = () => {
             ease: "linear",
           }}
           className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-radial from-primary/20 to-transparent opacity-30"
+          style={{
+            transform: 'translateZ(30px)',
+            filter: 'blur(80px)',
+          }}
         />
         <motion.div
           animate={{
@@ -52,7 +62,19 @@ const Hero = () => {
             ease: "linear",
           }}
           className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-radial from-secondary/20 to-transparent opacity-30"
+          style={{
+            transform: 'translateZ(30px)',
+            filter: 'blur(80px)',
+          }}
         />
+        
+        {/* 3D Grid Background */}
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: 'linear-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 70, 229, 0.1) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          transform: 'rotateX(60deg) scale(2)',
+          transformOrigin: 'center center',
+        }} />
       </div>
 
       <div className="container">
