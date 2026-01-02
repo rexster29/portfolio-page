@@ -169,51 +169,122 @@ const Skills = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
             {skillsData.map((category, categoryIndex) => (
-              <motion.div
+              <Tilt
                 key={category.category}
-                variants={itemVariants}
-                className="relative"
+                tiltMaxAngleX={20}
+                tiltMaxAngleY={20}
+                scale={1.05}
+                transitionSpeed={1500}
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                glareColor="#4F46E5"
+                glarePosition="all"
+                glareBorderRadius="1rem"
               >
-                <div className="card h-full">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                      {category.icon}
-                    </div>
-                    <h3 className="text-xl font-bold">{category.category}</h3>
-                  </div>
-
-                  <div className="space-y-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                        transition={{
-                          duration: 0.5,
-                          delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                <motion.div
+                  variants={itemVariants}
+                  className="relative h-full"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                  }}
+                >
+                  <div 
+                    className="card h-full relative overflow-hidden"
+                    style={{
+                      boxShadow: '0 20px 60px rgba(79, 70, 229, 0.15)',
+                      transform: 'translateZ(50px)',
+                    }}
+                  >
+                    {/* Animated gradient background */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 -z-10"
+                      animate={{
+                        rotate: [0, 360],
+                      }}
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    />
+                    
+                    <div className="flex items-center gap-3 mb-6">
+                      <motion.div 
+                        className="p-2 bg-primary/10 rounded-lg text-primary"
+                        style={{
+                          transform: 'translateZ(30px)',
+                          boxShadow: '0 10px 20px rgba(79, 70, 229, 0.2)',
                         }}
-                        className="flex items-center gap-3 p-3 rounded-lg hover:bg-dark/5 dark:hover:bg-light/5 transition-colors group"
+                        whileHover={{
+                          rotateY: 360,
+                          scale: 1.2,
+                        }}
+                        transition={{
+                          duration: 0.6,
+                        }}
                       >
-                        <span className="text-dark-content dark:text-light-content flex items-center gap-2">
-                          {skill.icon}
-                          {skill.name}
-                        </span>
-                        <motion.div
-                          className="absolute -z-10 inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                          animate={{
-                            rotate: [0, 360],
-                          }}
-                          transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                        />
+                        {category.icon}
                       </motion.div>
-                    ))}
+                      <h3 
+                        className="text-xl font-bold"
+                        style={{
+                          transform: 'translateZ(20px)',
+                        }}
+                      >
+                        {category.category}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-4">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.div
+                          key={skill.name}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                          transition={{
+                            duration: 0.5,
+                            delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                          }}
+                          whileHover={{
+                            x: 10,
+                            scale: 1.05,
+                          }}
+                          className="flex items-center gap-3 p-3 rounded-lg hover:bg-dark/5 dark:hover:bg-light/5 transition-colors group relative"
+                          style={{
+                            transform: 'translateZ(15px)',
+                            transformStyle: 'preserve-3d',
+                          }}
+                        >
+                          <span className="text-dark-content dark:text-light-content flex items-center gap-2">
+                            <motion.span
+                              whileHover={{
+                                rotate: 360,
+                                scale: 1.3,
+                              }}
+                              transition={{
+                                duration: 0.5,
+                              }}
+                              style={{
+                                display: 'inline-block',
+                                transform: 'translateZ(10px)',
+                              }}
+                            >
+                              {skill.icon}
+                            </motion.span>
+                            {skill.name}
+                          </span>
+                          <motion.div
+                            className="absolute -z-10 inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                            style={{
+                              transform: 'translateZ(-5px)',
+                            }}
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Tilt>
             ))}
           </div>
         </motion.div>
