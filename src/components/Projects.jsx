@@ -56,7 +56,33 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="section-padding">
+    <section id="projects" className="section-padding relative overflow-hidden" style={{ perspective: '1500px' }}>
+      {/* 3D Background elements */}
+      <div className="absolute inset-0 -z-10">
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 blur-3xl"
+            style={{
+              left: `${10 + i * 25}%`,
+              top: `${15 + (i % 2) * 50}%`,
+              transform: 'translateZ(30px)',
+            }}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 30, 0],
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 15 + i * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+      
       <div className="container">
         <motion.div
           ref={ref}
