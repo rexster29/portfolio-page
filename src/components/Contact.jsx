@@ -60,12 +60,13 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-secondary/5">
-      {/* Animated background */}
+    <section id="contact" className="section-padding relative overflow-hidden bg-secondary/5" style={{ perspective: '1500px' }}>
+      {/* Enhanced Animated 3D background */}
       <div className="absolute inset-0 -z-10">
         <motion.div
           animate={{
             backgroundPosition: ['0% 0%', '100% 100%'],
+            rotate: [0, 360],
           }}
           transition={{
             duration: 20,
@@ -76,8 +77,33 @@ const Contact = () => {
           style={{
             background: 'radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)',
             backgroundSize: '100% 100%',
+            transform: 'translateZ(40px)',
           }}
         />
+        
+        {/* 3D floating elements */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-32 h-32 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 blur-2xl"
+            style={{
+              left: `${15 + i * 25}%`,
+              top: `${20 + (i % 2) * 40}%`,
+              transform: 'translateZ(30px)',
+            }}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.4, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
 
       <div className="container">
