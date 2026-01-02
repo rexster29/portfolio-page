@@ -131,20 +131,49 @@ const Contact = () => {
 
               <div className="space-y-4 mt-8">
                 {contactInfo.map((info, index) => (
-                  <motion.a
+                  <Tilt
                     key={index}
-                    href={info.link}
-                    whileHover={{ x: 10 }}
-                    className="flex items-center space-x-4 p-4 rounded-lg hover:bg-primary/5 transition-colors duration-300"
+                    tiltMaxAngleX={10}
+                    tiltMaxAngleY={10}
+                    scale={1.05}
+                    transitionSpeed={1000}
                   >
-                    <div className="p-3 bg-primary/10 text-primary rounded-lg">
-                      {info.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-medium">{info.title}</h4>
-                      <p className="text-dark-content/70">{info.content}</p>
-                    </div>
-                  </motion.a>
+                    <motion.a
+                      href={info.link}
+                      whileHover={{ x: 10 }}
+                      className="flex items-center space-x-4 p-4 rounded-lg hover:bg-primary/5 transition-colors duration-300 block"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        boxShadow: '0 10px 30px rgba(79, 70, 229, 0.1)',
+                        transform: 'translateZ(30px)',
+                      }}
+                    >
+                      <motion.div 
+                        className="p-3 bg-primary/10 text-primary rounded-lg"
+                        style={{
+                          transform: 'translateZ(20px)',
+                          boxShadow: '0 5px 20px rgba(79, 70, 229, 0.2)',
+                        }}
+                        whileHover={{
+                          rotateY: 360,
+                          scale: 1.2,
+                        }}
+                        transition={{
+                          duration: 0.6,
+                        }}
+                      >
+                        {info.icon}
+                      </motion.div>
+                      <div
+                        style={{
+                          transform: 'translateZ(15px)',
+                        }}
+                      >
+                        <h4 className="font-medium">{info.title}</h4>
+                        <p className="text-dark-content/70">{info.content}</p>
+                      </div>
+                    </motion.a>
+                  </Tilt>
                 ))}
               </div>
             </motion.div>
