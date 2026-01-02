@@ -6,7 +6,7 @@ import {
   MapPinIcon,
   ArrowRightIcon,
 } from '@heroicons/react/24/outline';
-import { Tilt } from 'react-parallax-tilt';
+import Tilt from 'react-parallax-tilt';
 
 const Contact = () => {
   const [ref, inView] = useInView({
