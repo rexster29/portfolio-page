@@ -59,7 +59,32 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="section-padding bg-secondary/5">
+    <section id="education" className="section-padding bg-secondary/5 relative overflow-hidden" style={{ perspective: '1500px' }}>
+      {/* 3D Background decorations */}
+      <div className="absolute inset-0 -z-10">
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-48 h-48 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 blur-3xl"
+            style={{
+              left: `${20 + i * 30}%`,
+              top: `${25 + i * 25}%`,
+              transform: 'translateZ(40px)',
+            }}
+            animate={{
+              y: [0, -30, 0],
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 12 + i * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+      
       <div className="container">
         <motion.div
           ref={ref}
