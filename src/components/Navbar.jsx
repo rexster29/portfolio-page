@@ -58,6 +58,10 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       } ${theme === 'dark' ? 'dark:bg-dark/80' : 'bg-light/80'}`}
+      style={{
+        boxShadow: scrolled ? '0 10px 40px rgba(79, 70, 229, 0.1)' : 'none',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+      }}
     >
       <div className="container py-4">
         <div className="flex items-center justify-between">
