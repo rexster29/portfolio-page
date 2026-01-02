@@ -10,6 +10,11 @@
   body {
     @apply font-sans antialiased;
   }
+  
+  /* Enable 3D transforms globally */
+  * {
+    transform-style: preserve-3d;
+  }
 }
 
 @layer components {
