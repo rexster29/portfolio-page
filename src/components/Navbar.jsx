@@ -66,9 +66,16 @@ const Navbar = () => {
       <div className="container py-4">
         <div className="flex items-center justify-between">
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ 
+              scale: 1.05,
+              rotateY: 5,
+            }}
             whileTap={{ scale: 0.95 }}
             className="text-2xl font-bold gradient-text"
+            style={{
+              transformStyle: 'preserve-3d',
+              textShadow: '0 5px 15px rgba(79, 70, 229, 0.3)',
+            }}
           >
             Portfolio
           </motion.div>
