@@ -95,9 +95,18 @@ const Navbar = () => {
                   smooth={true}
                   offset={-100}
                   duration={500}
-                  className="nav-link cursor-pointer"
+                  className="nav-link cursor-pointer relative"
                 >
-                  {item.name}
+                  <motion.span
+                    whileHover={{
+                      y: -2,
+                    }}
+                    style={{
+                      display: 'inline-block',
+                    }}
+                  >
+                    {item.name}
+                  </motion.span>
                 </Link>
               </motion.div>
             ))}
