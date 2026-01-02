@@ -123,10 +123,33 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="section-padding relative overflow-hidden">
-      {/* Background Animation */}
+    <section id="skills" className="section-padding relative overflow-hidden" style={{ perspective: '2000px' }}>
+      {/* Enhanced Background Animation with 3D layers */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10" />
+        
+        {/* 3D floating orbs */}
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-32 h-32 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 blur-2xl"
+            style={{
+              left: `${15 + i * 20}%`,
+              top: `${20 + (i % 2) * 40}%`,
+              transform: 'translateZ(20px)',
+            }}
+            animate={{
+              y: [0, -30, 0],
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
 
       <div className="container">
